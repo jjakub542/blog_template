@@ -31,8 +31,6 @@ func (s *Server) Router() http.Handler {
 	adminGroup.POST("/articles/create", session.AdminAuth(h.ArticleCreate))
 	adminGroup.POST("/articles/:article_id/delete", session.AdminAuth(h.ArticleDelete))
 	adminGroup.POST("/articles/:article_id/update", session.AdminAuth(h.ArticleUpdate))
-	adminGroup.POST("/articles/:article_id/attach-image", session.AdminAuth(h.ArticleAttachImage))
-	adminGroup.POST("/articles/delete-image", session.AdminAuth(h.ArticleDeleteImage))
 	adminGroup.GET("/articles/:article_id", session.AdminAuth(h.ArticleEditPage))
 	adminGroup.Any("/login", h.LoginPage)
 	adminGroup.Any("/logout", h.LogoutPage)
